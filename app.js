@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const app = express();
 app.use(express.json());
 const {
@@ -10,7 +11,9 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 app.post('/api/auth', async (req, res, next) => {
   try {
-    res.send({ token: await User.authenticate(req.body) });
+    res.send({
+      token: await User.authenticate(req.body),
+    });
   } catch (ex) {
     next(ex);
   }
