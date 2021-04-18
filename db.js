@@ -98,5 +98,6 @@ module.exports = {
   syncAndSeed,
   models: {
     User,
+    Note
   },
 };
