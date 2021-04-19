@@ -26,7 +26,7 @@ app.get('/api/users/:id/notes', async (req, res, next) => {
         userId: req.params.id
       }
     });
-    const { id } = await User.byToken(req.headers.authorization)
+    // const { id } = await User.byToken(req.headers.authorization)
     // need to compare request w JWT in env
     res.send(notes)
   } catch (error) {
